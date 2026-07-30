@@ -83,7 +83,7 @@ export default function App() {
       <Text> </Text>
       <Button color='#C44E04' title="Comprar Rifa" onPress={() => setTelaAtual('codigo')}/>
 
-      <TouchableOpacity activeOpacity={0.7} onPress={() => setModalSobreVisivel(true)}>
+      <TouchableOpacity activeOpacity={0.7} style={{marginTop: 'auto'}} onPress={() => setModalSobreVisivel(true)}>
         <Image style={styles.made} source={require('./Images/MadeBy.png')}/>
       </TouchableOpacity>
 
