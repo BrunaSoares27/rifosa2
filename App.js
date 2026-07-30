@@ -1,27 +1,5 @@
-/*import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-*/
-
 import React, { useState } from 'react'; 
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, Modal, TouchableOpacity } from 'react-native';
 import CodigoAcesso from './CodigoAcesso';
 import CodigoCorreto from './CodigoCorreto';
 import TelaCompra from './TelaCompra';
@@ -112,8 +90,8 @@ export default function App() {
       <Modal
         animationType="fade"
         transparent={true}
-        visible={modalCodigoVisivel}
-        onRequestClose={() => setModalCodigoVisivel(false)}
+        visible={modalSobreVisivel}
+        onRequestClose={() => setModalSobreVisivel(false)}
         >
           <View style={styles.modalOverlay}>
             <View style={styles.modalCard}>
@@ -123,9 +101,7 @@ export default function App() {
               <TouchableOpacity 
                 style={styles.btnOkModal}
                 onPress={() => {
-                  setModalCodigoVisivel(false);
-                  setQtdNumerosVenda('');
-                  if (onVoltar) onVoltar();
+                  setModalSobreVisivel(false);
                 }}
               >
                 <Text style={styles.btnOkModalText}>OK</Text>
