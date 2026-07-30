@@ -54,7 +54,7 @@ export default function App() {
   // Guarda qual rifa/venda está sendo acessada no momento
   const [rifaAtiva, setRifaAtiva] = useState(null);
   const [vendaAtiva, setVendaAtiva] = useState(null);
-  //const [modalSobreVisivel, setModalSobreVisivel] = useState(false);
+  const [modalSobreVisivel, setModalSobreVisivel] = useState(false);
   
   if (telaAtual === 'codigo') {
     return (
@@ -105,7 +105,34 @@ export default function App() {
       <Text> </Text>
       <Button color='#C44E04' title="Comprar Rifa" onPress={() => setTelaAtual('codigo')}/>
 
-      <Image style={styles.made} source={require('./Images/MadeBy.png')}/>
+      <TouchableOpacity activeOpacity={0.7} onPress={() => setModalSobreVisivel(true)}>
+        <Image style={styles.made} source={require('./Images/MadeBy.png')}/>
+      </TouchableOpacity>
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalCodigoVisivel}
+        onRequestClose={() => setModalCodigoVisivel(false)}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalCard}>
+              <Text style={styles.modalTextInfo}>
+                Versão 1.0 do app Rifosa. Feito por Bruna Soares para o IARTES.
+              </Text>      
+              <TouchableOpacity 
+                style={styles.btnOkModal}
+                onPress={() => {
+                  setModalCodigoVisivel(false);
+                  setQtdNumerosVenda('');
+                  if (onVoltar) onVoltar();
+                }}
+              >
+                <Text style={styles.btnOkModalText}>OK</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+      </Modal>
     </View>
   );
 }
@@ -127,7 +154,41 @@ const styles = StyleSheet.create({
     height: 80,
     marginTop: 'auto',
     marginBottom: 20,
-  }
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalCard: {
+    width: '80%',
+    backgroundColor: '#706054',
+    borderRadius: 15,
+    padding: 20,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#C44E04',
+  },
+  btnOkModal: {
+    backgroundColor: '#C44E04',
+    paddingVertical: 8,
+    paddingHorizontal: 30,
+    borderRadius: 6,
+  },
+  btnOkModalText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  modalTextInfo: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 15,
+  },
 });
 
 
