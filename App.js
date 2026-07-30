@@ -96,8 +96,11 @@ export default function App() {
           <View style={styles.modalOverlay}>
             <View style={styles.modalCard}>
               <Text style={styles.modalTextInfo}>
-                Versão 1.0 do app Rifosa. Feito por Bruna Soares para o IARTES.
-              </Text>      
+                Rifosa - V2.0
+              </Text>   
+              <Text style={styles.modalTextInfo}>
+                Feito por Bruna Soares como requisito de nota para o IARTES.
+              </Text>       
               <TouchableOpacity 
                 style={styles.btnOkModal}
                 onPress={() => {
