@@ -106,8 +106,6 @@ export default function App() {
       <Button color='#C44E04' title="Comprar Rifa" onPress={() => setTelaAtual('codigo')}/>
 
       <Image style={styles.made} source={require('./Images/MadeBy.png')}/>
-      <Image style={styles.made} source={require('./Images/MadeBy.png')}/>
-
     </View>
   );
 }
